@@ -11,7 +11,7 @@
 
 .tTip
     background rgba(50, 54, 66, 0.9) 
-    min-width 136px
+    min-width rem(276)
     padding rem(40) 0
     border-radius rem(10)
     
@@ -21,10 +21,24 @@
         width rem(75)
         height rem(75)
         fill #fff
+.tTipIconLoading
+    svg
+        -webkit-animation rot .9s infinite linear
+        animation rot .9s infinite linear
         
 .tTipContent
     font-size rem(28)
     line-height 1.5
+    padding 0 rem(50)
+    
+
+@keyframes rot
+    from
+        -webkit-transform rotate(0deg)
+        transform rotate(0deg)
+    to
+        -webkit-transform rotate(359deg)
+        transform rotate(359deg)
     
         
 

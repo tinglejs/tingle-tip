@@ -31,7 +31,7 @@ class Demo extends React.Component {
     handleClickError() {
         Tip.show({
             icon: 'error',
-            text: '提交失败',
+            text: '提交出错',
             onHide() {
                 console.log('error tip is hidden');
             }
@@ -41,16 +41,31 @@ class Demo extends React.Component {
     handleClickFail() {
         Tip.show({
             icon: 'fail',
-            text: '网络连接错误',
+            text: '网络连接失败',
+            duration: 3000,
+            closeable: true,
             onHide() {
                 console.log('fail tip is hidden');
             }
         });
     }
 
+    handleClickLoading() {
+        Tip.show({
+            icon: 'loading',
+            text: '加载中...',
+            autoHide: false,
+            onHide() {
+                console.log('loading tip is hidden');
+            }
+        });
+
+        setTimeout(() => Tip.hide(), 5000);
+    }
+
     handleClickText() {
         Tip.show({
-            text: '文字提醒文字提醒文字',
+            text: '文字提醒文字提醒文字提醒',
             onHide() {
                 console.log('text tip is hidden');
             }
@@ -63,7 +78,9 @@ class Demo extends React.Component {
             <Button className="demo" onClick={this.handleClickSuccess.bind(this)}>success</Button>
             <Button className="demo" onClick={this.handleClickError.bind(this)}>error</Button>
             <Button className="demo" onClick={this.handleClickFail.bind(this)}>fail</Button>
+            <Button className="demo" onClick={this.handleClickLoading.bind(this)}>loading</Button>
             <Button className="demo" onClick={this.handleClickText.bind(this)}>text</Button>
+            <Tip text="文字提醒文字提醒文字提醒" show={true} autoHide={false} closeable={true} />
         </div>
     }
 };

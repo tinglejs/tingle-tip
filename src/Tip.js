@@ -15,28 +15,17 @@ class Tip extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            show: false,
-            icon: props.icon,
-            text: props.text,
-            mask: props.mask,
-            onHide: props.onHide,
-            duration: props.duration
-        }
+        this.state = Object.assign({}, props);
+        this.state.width = this.state.icon ? this.state.width : '80%';
     }
 
     show(options) {
-        let width = options.icon ? options.width || this.props.width : 216;
+        let t = this;
 
-        this.setState({
-            width: width,
-            text: options.text,
-            icon: options.icon,
-            onHide: options.onHide || this.props.onHide,
-            show: true,
-            mask: true,
-            duration: options.duration
-        });
+        options.width = options.icon ? options.width || t.props.width : '80%';
+        options.show = true;
+
+        t.setState(Object.assign({}, t.props, options));
     }
 
     hide() {
@@ -49,21 +38,23 @@ class Tip extends React.Component {
 
     render() {
         let t = this;
-        let {icon, text, show, duration, ...other} = t.state;
+        let {icon, text, show, duration, autoHide, onHide, ...other} = t.state;
 
-        icon = icon ? <div key={"tingle-tip-" + icon} className="tTipIcon tFAC tPR">
+        icon = icon ? <div key={"tingle-tip-" + icon} className={"tTipIcon tFAC tPR tTipIcon" + icon[0].toUpperCase() + icon.slice(1)}>
                 <Icon id={"tingle-tip-" + icon} />
-            </div> : '';
+            </div> : null;
+
+        text = text ? <div className="tTipContent tFCf tLH1_5 tFAC">{text}</div> : null;
 
         clearTimeout(t.timer);
-        t.timer = show && setTimeout(() => t.hide(), duration || 3000);
+        t.timer = show && autoHide && setTimeout(() => t.hide(), duration);
 
-        return <Layer show={show} {...other}> 
+        return <Layer show={show} onHide={t.hide.bind(this)} {...other} > 
             <div ref="root" className={classnames('tTip', {
                 [t.props.className]: !!t.props.className
-            })}>
+            })} onClick={() => {t.state.closeable && t.hide()}}>
                 {icon}
-                <div className="tTipContent tFCf tLH1_5 tFAC">{text}</div>
+                {text}
             </div>
         </Layer>;
     }
@@ -73,14 +64,19 @@ Tip.defaultProps = {
     onHide() {},
     show: false,
     mask: true,
+    autoHide: true,
+    closeable: false,
     text: '',
-    icon: ''
+    icon: '',
+    duration: 1500
 }
 
 // http://facebook.github.io/react/docs/reusable-components.html
 Tip.propTypes = {
     show: React.PropTypes.bool,
     mask: React.PropTypes.bool,
+    autoHide: React.PropTypes.bool,
+    closeable: React.PropTypes.bool,
     onHide: React.PropTypes.func,
     width: React.PropTypes.string,
     text: React.PropTypes.string,
