@@ -84,7 +84,7 @@ Tip.propTypes = {
     show: React.PropTypes.bool,
     mask: React.PropTypes.bool,
     onHide: React.PropTypes.func,
-    width: React.PropTypes.string,
+    width: React.PropTypes.number,
     text: React.PropTypes.string,
     icon: React.PropTypes.string,
     duration: React.PropTypes.number
