@@ -47,9 +47,11 @@ class Tip extends React.Component {
         text = text ? <div className="tTipContent tFCf tLH1_5 tFAC">{text}</div> : null;
 
         clearTimeout(t.timer);
+
         t.timer = show && autoHide && setTimeout(() => t.hide(), duration);
 
         return <Layer show={show} onHide={t.hide.bind(this)} {...other} > 
+
             <div ref="root" className={classnames('tTip', {
                 [t.props.className]: !!t.props.className
             })} onClick={() => {t.state.closeable && t.hide()}}>
@@ -78,7 +80,10 @@ Tip.propTypes = {
     autoHide: React.PropTypes.bool,
     closeable: React.PropTypes.bool,
     onHide: React.PropTypes.func,
-    width: React.PropTypes.string,
+    width: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.number
+    ]),
     text: React.PropTypes.string,
     icon: React.PropTypes.string,
     duration: React.PropTypes.number
@@ -88,7 +93,7 @@ let WRAPPER_ID = '__TingleGlobalTip__';
 let doc = document;
 
 Tip.global = null;
-Tip.show = (options) => {
+Tip.show = function (options){
     // 只有首次全局调用时，才会创建全局实例
     if (!Tip.global) {
         let wrapper = doc.getElementById(WRAPPER_ID);
@@ -102,7 +107,7 @@ Tip.show = (options) => {
     Tip.global.show(options);
 }
 
-Tip.hide = () => {
+Tip.hide = function()  {
     Tip.global && Tip.global.hide();
 }
 

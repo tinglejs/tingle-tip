@@ -11,7 +11,6 @@ let Button = require('tingle-button');
 let Tip = require('../src');
 
 class Demo extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -71,10 +70,10 @@ class Demo extends React.Component {
             }
         });
     }
-    
+
 
     render() {
-        return <div>
+        return <div className="demoWrap">
             <Button className="demo" onClick={this.handleClickSuccess.bind(this)}>success</Button>
             <Button className="demo" onClick={this.handleClickError.bind(this)}>error</Button>
             <Button className="demo" onClick={this.handleClickFail.bind(this)}>fail</Button>

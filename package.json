@@ -1,12 +1,15 @@
 {
   "name": "tingle-tip",
-  "version": "0.1.0",
-  "description": "a simple tip to inform user some short message",
+  "version": "0.2.0",
+  "description": "提示浮层，主要用于短暂的提示。",
   "repository": "https://github.com/tinglejs/tingle-tip.git",
   "author": {
-    "name":"minjie",
+    "name": "minjie",
     "email": "nic-t@163.com"
   },
+  "maintainers":[
+    "yize <yize.shc@gmail.com>"
+  ],
   "main": "src/index.js",
   "files": [
     "src",
@@ -19,25 +22,23 @@
   ],
   "dependencies": {
     "classnames": "^2.1.2",
-    "tingle-style": "~0.1.0",
-    "tingle-mask": "~0.1.0",
-    "tingle-layer": "~0.1.0",
-    "tingle-icon": "~0.1.0"
+    "tingle-context": "~0.1.0",
+    "tingle-style": "~0.2.0",
+    "tingle-icon": "~0.1.0",
+    "tingle-layer": "~0.2.0"
   },
   "devDependencies": {
-    "fastclick": "^1.0.6",
-    "tingle-button": "~0.1.1",
-    "react": "^0.13.3",
-    "zepto": "0.0.4",
-    "tingle-context": "~0.1.0",
     "babel-core": "^5.8.19",
     "babel-loader": "^5.3.2",
     "gulp": "^3.9.0",
-    "tingle-dev-tools": "latest"
+    "tingle-dev-tools": "latest",
+    "fastclick": "^1.0.6",
+    "react": "^0.13.3",
+    "tingle-button": "~0.2.0"
   },
   "scripts": {
     "start": "gulp server"
   },
   "license": "MIT",
-  "screenshots": "https://gtms04.alicdn.com/tps/i4/TB1nYteIVXXXXcgaXXXq0HQVVXX-309-422.png"
+  "screenshots": "https://img.alicdn.com/tps/TB1JxrZJpXXXXciXFXXXXXXXXXX-750-1254.png"
 }

@@ -1,13 +1,11 @@
 # tingle-tip [![npm version](https://badge.fury.io/js/tingle-tip.svg)](http://badge.fury.io/js/tingle-tip)
 
+Tip提示
 
-## TL;DR
-
-效果图:
-
-![效果图](https://gtms04.alicdn.com/tps/i4/TB1nYteIVXXXXcgaXXXq0HQVVXX-309-422.png_200x200.jpg)
+<img src="https://img.alicdn.com/tps/TB1JxrZJpXXXXciXFXXXXXXXXXX-750-1254.png" width="375"/>
 
 ## Simple Usage
+
 ```javascript
 Tip.show({
     icon: 'success', // 'error', 'fail'
