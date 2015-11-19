@@ -17,7 +17,14 @@
 .tTipIcon .tIcon {
   width: 38px;
   height: 38px;
+  border-radius: 20px;
+  fill: #323642;
+  background: #fff;
+}
+.tTipIconFail .tIcon,
+.tTipIconLoading .tIcon {
   fill: #fff;
+  background: transparent;
 }
 .tTipIconLoading svg {
   -webkit-animation: rot 0.9s infinite linear;
