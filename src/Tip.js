@@ -15,8 +15,20 @@ class Tip extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = Object.assign({}, props);
+        this.state = this._extend({}, props);
         this.state.width = this.state.icon ? this.state.width : '80%';
+    }
+
+    _extend(to) {
+        for(let i = 1; i < arguments.length; i++) {
+            let from = arguments[i];
+            for (let key in from) {
+                if (from.hasOwnProperty(key)) {
+                    to[key] = from[key];
+                }
+            }
+        }
+        return to;
     }
 
     show(options) {
@@ -25,7 +37,7 @@ class Tip extends React.Component {
         options.width = options.icon ? options.width || t.props.width : '80%';
         options.show = true;
 
-        t.setState(Object.assign({}, t.props, options));
+        t.setState(this._extend({}, t.props, options));
     }
 
     hide() {
