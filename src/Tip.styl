@@ -10,23 +10,40 @@
 @require '../node_modules/tingle-style/src/var'
 
 .tTip
-    background rgba(50, 54, 66, 0.9)
-    min-width 136px
-    padding 20px 0
-    border-radius 5px
-
+    background rgba(50, 54, 66, 0.9) 
+    min-width rem(276)
+    padding rem(40) 0
+    border-radius rem(10)
 .tTipIcon
     padding-bottom 20px
     .tIcon
         width 38px
         height 38px
+        border-radius 20px
+        fill #323642
+        background #fff
+        
+.tTipIconFail, .tTipIconLoading
+    .tIcon
         fill #fff
-
+        background transparent
+        
+.tTipIconLoading
+    svg
+        -webkit-animation rot .9s infinite linear
+        animation rot .9s infinite linear
 .tTipContent
     font-size 14px
     line-height 1.5
-    padding-left 15px
-    padding-right 15px
+    padding 0 rem(50)
+    
 
+@keyframes rot
+    from
+        -webkit-transform rotate(0deg)
+        transform rotate(0deg)
+    to
+        -webkit-transform rotate(359deg)
+        transform rotate(359deg)
 
 

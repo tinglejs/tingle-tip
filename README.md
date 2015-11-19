@@ -28,9 +28,10 @@ Tip.show({
 | 配置项 | 必填 | 默认值 | 功能/备注 |
 |---|----|---|----|
 |text|required|-|提示文本(文本应尽量简短)|
-|icon| optional |-|tip显示的icon，可选值为：success、error和fail|
-|duration| optional |3000|tip显示的时间(单位是毫秒)|
-|width| optional |136px|tip 的总宽度|
+|icon| optional |-|tip显示的icon，可选值为：success、error、fail合和loading|
+|duration| optional |1500|tip显示的时间(单位是毫秒)|
+|autoHide|optional|true|在duration毫秒后会自动关闭提示|
+|closeable|optional|false|点击页面关闭浮层|
 |onHide|optional|-|tip隐藏时的回调|
 
 ## API接口

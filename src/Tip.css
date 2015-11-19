@@ -7,9 +7,9 @@
  */
 .tTip {
   background: rgba(50,54,66,0.9);
-  min-width: 136px;
-  padding: 20px 0;
-  border-radius: 5px;
+  min-width: 3.68rem;
+  padding: 0.533333333333333rem 0;
+  border-radius: 0.133333333333333rem;
 }
 .tTipIcon {
   padding-bottom: 20px;
@@ -17,13 +17,63 @@
 .tTipIcon .tIcon {
   width: 38px;
   height: 38px;
+  border-radius: 20px;
+  fill: #323642;
+  background: #fff;
+}
+.tTipIconFail .tIcon,
+.tTipIconLoading .tIcon {
   fill: #fff;
+  background: transparent;
+}
+.tTipIconLoading svg {
+  -webkit-animation: rot 0.9s infinite linear;
+  animation: rot 0.9s infinite linear;
 }
 .tTipContent {
   font-size: 14px;
   line-height: 1.5;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 0 0.666666666666667rem;
+}
+@-moz-keyframes rot {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes rot {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@-o-keyframes rot {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes rot {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }
 
 /*# sourceMappingURL=Tip.css.map */
