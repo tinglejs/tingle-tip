@@ -1,6 +1,6 @@
 {
   "name": "tingle-tip",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "提示浮层，主要用于短暂的提示。",
   "repository": "https://github.com/tinglejs/tingle-tip.git",
   "author": {
@@ -24,7 +24,7 @@
     "classnames": "^2.1.2",
     "tingle-button": "~0.2.0",
     "tingle-context": "~0.1.0",
-    "tingle-icon": "~0.1.0",
+    "tingle-icon": "~0.2.2",
     "tingle-layer": "~0.2.0",
     "tingle-style": "~0.2.0"
   },
